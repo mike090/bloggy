@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 require 'grape'
+require 'mongoid'
+
+Mongoid.load! 'config/mongoid.config'
+
+Dir["#{File.dirname(__FILE__)}/app/models/**/*.rb"].each { |f| require f }
 
 module API
   class Root < Grape::API
