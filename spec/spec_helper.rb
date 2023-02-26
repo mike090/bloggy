@@ -20,6 +20,7 @@ ENV['RACK_ENV'] = 'test'
 require 'rack/test'
 require 'byebug'
 require_relative '../application'
+require_relative 'support/factory_bot'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

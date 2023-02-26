@@ -6,6 +6,7 @@ require 'mongoid'
 Mongoid.load! 'config/mongoid.config'
 
 Dir["#{File.dirname(__FILE__)}/app/models/**/*.rb"].each { |f| require f }
+Dir["#{File.dirname(__FILE__)}/app/api/**/*.rb"].each { |f| require f }
 
 module API
   class Root < Grape::API
@@ -16,6 +17,10 @@ module API
     get :status do
       { status: 'ok' }
     end
+
+    mount V1::Admin::Posts
+    mount V1::Posts
+    mount V1::Comments
   end
 end
 
