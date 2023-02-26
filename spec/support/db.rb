@@ -1,12 +1,15 @@
 # frozen_string_literal: true
 
+require 'mongoid_cleaner'
+
 RSpec.configure do |config|
   config.before(:suite) do
-    Post.delete_all
+    MongoidCleaner.strategy = :drop
   end
 
-  config.around(:example, :isolated) do |example|
-    Post.delete_all
-    example.run
+  config.around(:each) do |example|
+    MongoidCleaner.cleaning do
+      example.run
+    end
   end
 end

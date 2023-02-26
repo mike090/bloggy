@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe 'bloggy api' do
+RSpec.describe 'bloggy api', :db_depended do
   include Rack::Test::Methods
 
   def app

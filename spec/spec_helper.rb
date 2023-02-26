@@ -18,9 +18,9 @@
 ENV['RACK_ENV'] = 'test'
 
 require 'rack/test'
+require 'factory_bot'
 require 'byebug'
 require_relative '../application'
-require_relative 'support/factory_bot'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -105,5 +105,11 @@ RSpec.configure do |config|
 
   config.when_first_matching_example_defined(:db_depended) do
     require_relative 'support/db'
+  end
+
+  config.include FactoryBot::Syntax::Methods
+
+  config.before(:suite) do
+    FactoryBot.find_definitions
   end
 end

@@ -17,4 +17,5 @@ group :test do
   gem 'faker', '~> 3.1.1'
   gem 'rack-test', '~> 2.0.2'
   gem 'rspec', '~> 3.12.0'
+  gem 'mongoid_cleaner', '~> 1.2.0'
 end

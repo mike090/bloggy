@@ -6,5 +6,6 @@ FactoryBot.define do
     email
     website
     content
+    association :post, factory: :post
   end
 end
