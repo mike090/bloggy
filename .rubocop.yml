@@ -9,3 +9,6 @@ Style/Documentation:
 
 Metrics/BlockLength:
   AllowedMethods: ['describe', 'context', 'resources', 'namespace']
+
+Naming/PredicateName:
+  Enabled: false
